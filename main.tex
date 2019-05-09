@@ -1,0 +1,103 @@
+\documentclass[a4paper, twoside, 12pt]{report}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+\usepackage{lscape}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+% Added later - for table in appendix
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{longtable}
+
+% Bibliography Harvard Style
+% Use this and change the style to agsm / apalike / lsalike
+%\usepackage{natbib}
+
+% Break-line for URLs
+\def\UrlBreaks{\do\/\do-}
+\usepackage{breakurl}
+
+% Table spacing
+\usepackage{verbatimbox}
+
+% Another table package
+\usepackage{tabulary}
+\usepackage{adjustbox}
+
+% Image positioning
+\usepackage[section]{placeins}
+
+% Code printing
+\usepackage{color}
+\usepackage{listings}
+\usepackage{caption}
+
+\newcounter{nalg}[chapter] % defines algorithm counter for chapter-level
+\renewcommand{\thenalg}{\thechapter .\arabic{nalg}} %defines appearance of the algorithm counter
+\DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg} % defines a new caption label as Algorithm x.y
+
+\lstnewenvironment{algorithm}[1][] %defines the algorithm listing environment
+{   
+    \refstepcounter{nalg} %increments algorithm number
+    \captionsetup{labelformat=algocaption,labelsep=colon} %defines the caption setup for: it ises label format as the declared caption label above and makes label and caption text to be separated by a ':'
+    \lstset{ %this is the stype
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\scriptsize, 
+        keywordstyle=\color{black}\bfseries\em,
+        keywords={,input, output, return, datatype, function, in, if, else, foreach, while, begin, end, write, store, get, do, calculate, test, on, } %add the keywords you want, or load a language as Rubens explains in his comment above.
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1 % this is to add specific settings to an usage of this environment (for instnce, the caption and referable label)
+    }
+}
+{}
+% /Code printing
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=4cm,right=4cm,marginparwidth=1.75cm]{geometry}
+
+\title{Predicting music popularity}
+\author{Rares Dinu}
+% Update supervisor and other title stuff in title/title.tex
+
+\begin{document}
+\input{title/title.tex}
+
+\begin{abstract}
+Ever since the music industry has started to be profitable, artists and record labels alike have been looking for the secret recipe of a hit song. The aim of this paper is to find out whether popular songs can be predicted by looking at features of the audio itself or derived from it provided by the Spotify API using machine learning classification algorithms. An in-depth analysis of the algorithms available, the model selection process, the data used and the feature selection and parameter optimisation processes is provided. The results were promising, showing it might indeed be possible to make such a prediction, the best model for the task being the SVM. Some features that were more prominent in the prediction were also identified and those seemed to be energy, loudness, tempo and duration. To showcase the results, a web application was implemented where a user can search for a song on Spotify and see the results of the prediction of different models.
+\end{abstract}
+
+\renewcommand{\abstractname}{Acknowledgements}
+\begin{abstract}
+Throughout the course of this project I have received a great deal of support and assistance. I would first like to express my gratitude to my supervisor, Prof. Gavin Brown, whose guidance and expertise was invaluable and helped me remain focused and eager to learn for the whole duration of the project. I would also like to thank my family and my girlfriend for their unconditional love and constant encouragement.
+\end{abstract}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+%\input{introduction/introduction.tex}
+\input{introduction_2/introduction_2.tex}
+\input{background/background.tex}
+\input{methodology/methodology.tex}
+\input{results/results.tex}
+\input{web_application/web_application.tex}
+%\input{background/background.tex}
+\input{conclusion/conclusion.tex}
+\input{appendix/appendix.tex}
+
+\bibliographystyle{unsrt}
+\bibliography{bibs/sample}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\end{document}

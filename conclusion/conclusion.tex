@@ -1,0 +1,33 @@
+\chapter{Conclusion}
+
+In this chapter, the outcomes of this experiment are presented and further improvements to this work along with some learning outcomes from this experience are discussed.
+
+\section{Summary of achievements}
+\begin{itemize}
+\item Achieved good prediction scores that conclude it is possible to predict hit songs just based on the features of the audio.
+\item With a score of 0.77 after optimisation and feature selection, SVMs are able to predict popular songs with a good degree of accuracy and do quite a bit better than a random predictor.
+\item With the feature selection process I was able to find some of the features that had a greater impact on the prediction and even though they depend on the model some of the more common ones are energy, loudness, tempo and duration.
+\item The web application implemented also allows users to see the predictions of this model and a few others on any song on Spotify in real time and could be used as a tool for artists or music labels.
+\end{itemize}
+
+% The results achieved in this experiment are promising and hint towards the possibility of there actually being a common pattern among hit songs. With an score of 0.77, SVM are able to predict popular songs with a good degree of accuracy and do quite a bit better than a random predictor. Therefore we can conclude that predicting popular music might indeed be possible just based on features of the audio. With the feature selection process I was able to find some of the features that had a greater impact on the prediction. Although they depend on the model, some of the more common ones were energy, loudness, tempo and duration. The web application implemented also allows users to see the predictions of this model and a few others on any song on Spotify in real time.
+
+\section{Further improvements}
+
+The data set used is rather small and it is not really representative of the very wide variety of genres and sounds present in the world of music. Also, the data sample contains songs that are fairly recent so the results in this study might not apply in the future, unless the models will be trained again on different data sampled at that time. 
+
+I believe that further research in this area should try to use a larger data set. I have started along this path later on in the research, getting a bigger data set of 3000 songs by scraping a charts website \cite{SpotifyCharts:online} and also getting the same features for those songs. Using the same models on this data showed poorer results than on the smaller set which might be due to the new examples making it harder for the models to find patterns rather than helping it.
+
+Another possible improvement that could be made is looking at different definitions of popularity. In Section \ref{ground_truth} I mentioned that the Spotify popularity metric was used for that in this research. Later on, I looked into using the view count on Youtube and wrote a Python script to match the songs in the data set from Spotify with their corresponding Youtube video and get the views for it using the Youtube API (the correlation between popularity and view count can be seen in Figure \ref{fig:ytcor}). For the larger data set, the charts website \cite{SpotifyCharts:online} also provided a number of total streams (essentially the total number of plays a song had on Spotify) which was also added. Using different combinations of popularity and Youtube view count or the view count, popularity and total stream numbers did not seem to improve the results. However, there are still a few other ways of defining a popular song not explored in this research but were used in previous work such as appearance on Billboard Top 100 or charts from the Official Charts Company. Another idea would be to use the number of Shazams \cite{wang2006shazam} (Shazam is a music recognition software that is widely used to identify songs) since that might provide an indication of what songs people like so much that they want to find out the name of the song immediately. 
+
+Furthermore, the number of features used in this project is quite small as compared to other research so I think this is a clear path for improvement. Some signal processing could be done to extract other useful features from the raw audio or something like sentiment analysis could be performed on social networks such as Twitter or Facebook to see if the song gets any attention but the latter would need to happen after the song's release.
+
+\section{What I would do differently?}
+
+If I were to start this project again I would probably spend more time on the planning of the project. Although I had a plan at the beginning, when I started researching the project and learned more about the task, more research paths came up that took time to explore. Therefore, I did not respect the plan at times, mixing research with implementation, for example, but I learned how to adjust over time. With a more carefully thought out plan, I think I could have been more efficient and could have explored more additional functionalities but now I have at least acquired the experience to do so for further projects. 
+
+I would also ask my supervisor more about the technologies encountered in the project, since I feel like I didn't take full advantage of his expertise on the subject and I could have learned even more from him.
+
+Another aspect that I would approach differently is I would also start out with a bigger data set. Because I did not have experience with working with data and machine learning I did not know where or how to get a bigger data set and so I created my own one. This was good for a small scale experiment but later I found out sources with larger, already compiled data sets.
+
+

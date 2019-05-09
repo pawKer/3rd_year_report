@@ -1,0 +1,28 @@
+\chapter{Introduction}
+
+This chapter looks at the motivation for this project while also providing a clear generic description of the project and a summary of the aims and the technical achievements.
+
+\section{Motivation}
+Music is all around us. Even if we try to, we literally can't get away from it. It's on TV, in shops, in cars and even on the street and with the advances of technology it's only going to become louder and more ubiquitous. People need a soundtrack to their lives. However, there are still a lot of artists who try to make a living by playing music and dream of becoming stars but in their pursuit of fame they struggle to find that sound that could make them famous. But what if they had a tool to help them? People often say that all the songs on the radio sound the same or that music nowadays is very repetitive. As if the people who produce the popular music have found a 'secret recipe' that they just follow blindly, change a few lyrics and melodies and out comes a brand new hit. Could this be true? Could we, using modern technology, determine what aspects all hit songs have in common, and so engineer the ultimate key to musical success? Well, this gave me the initial idea for this project and it was the starting point for my research.
+
+Being passionate about music and knowing that a lot of popular songs tend to use the same chords at their core, just with added elements on top I thought there might actually be some truth to this. But how to prove it? I knew I wanted to use machine learning since I wanted to learn more about it and knew from my experience in university that it could be applied in such a problem. I also knew I wanted to use Spotify since it is a very popular music streaming platform that had a freely accessible API.
+
+Using this technology we can use predictors on the Spotify data to try to find out if there is a link between all hit songs, some prevailing features that can distinguish them from non-hits. If we could do that, then an artist would be able to try the effect of the predictors on their own music and fine tune the song until it has what it takes to be popular. Similarly, a music label looking to sign artists can look at the prediction of an artist's songs and use that insight to inform their decision. With the music industry being incredibly profitable and still continuously growing especially with the rise of paid streaming services such as Spotify and Apple Music \cite{USMusicI78:online}, such predictions would be invaluable to artists, music labels, and even to the media who could use it to pick songs to broadcast that they know their audience will like. It might not be as easy as it sounds and we might not want a society where all the songs released are hits but it is a captivating thought worth exploring.
+
+\section{Summary of project aims}
+\begin{itemize}
+    \item Find an answer to the question "Is it possible to predict whether a song will be a hit just based on the audio?" by using machine learning and data from Spotify
+    \item Find the best classifier, features and parameters for this prediction task
+    \item Implement some kind of tool where an artist or music label could see the potential of a piece of music
+\end{itemize}
+
+\section{Summary of technical achievements}
+\begin{itemize}
+    \item Successfully used data from the Spotify API and classification algorithms from the sci-kit learn library to predict popular songs
+    \item The model parameters and features were optimised to improve the performance of the predictors
+    \item The resulting accuracy of predictions was better than some previous work in this area and concluded that it is indeed possible to predict hit songs with a good degree of certainty
+    \item A web application was implemented to showcase the results where a user can see the real time prediction of different classifiers on any song they search for on Spotify
+\end{itemize}
+
+
+
